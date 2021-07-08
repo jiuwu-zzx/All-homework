@@ -82,6 +82,10 @@ public class IntList {
 
     public static IntList dcatenate(IntList A, IntList B) {
         //TODO:  fill in method
+        while(A.rest!=null){
+            A=A.rest;
+        }
+        A.rest=B;
         return null;
     }
 
@@ -91,10 +95,40 @@ public class IntList {
      */
     public static IntList catenate(IntList A, IntList B) {
         //TODO:  fill in method
-        return null;
+        if (A==null){
+            return B;
+        }
+        IntList res=new IntList(A.first,null);
+        IntList ptr=res;
+        A=A.rest;
+        while(A!=null){
+            ptr.rest=new IntList(A.first,null);
+            ptr=ptr.rest;
+            A=A.rest;
+        }
+        while(B!=null){
+            ptr.rest=new IntList(B.first,null);
+            ptr=ptr.rest;
+            B=B.rest;
+        }
+        return res;
     }
 
-
+    /**
+     * main function written by jiuwu
+     */
+    public static void main(String[] args){
+        //Square
+//        IntList origl=IntList.of(1,2,3);
+//        dSquareList(origl);
+//        IntList newl=squareListIterative(origl);
+//        IntList newl=squareListRecursive(origl);
+        //Catenate
+        IntList a=IntList.of(1);
+        IntList b=IntList.of(2,3,4,4);
+//        dcatenate(a,b);
+        IntList c=catenate(a,b);
+    }
 
 
 
