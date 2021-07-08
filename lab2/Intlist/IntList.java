@@ -5,7 +5,7 @@ import java.util.Formatter;
  * with a large number of additional methods.
  *
  * @author P. N. Hilfinger, with some modifications by Josh Hug and melaniecebula
- *         [Do not modify this file.]
+ * [Do not modify this file.]
  */
 public class IntList {
     /**
@@ -29,7 +29,7 @@ public class IntList {
      * A List with null rest, and first = 0.
      */
     public IntList() {
-    /* NOTE: public IntList () { }  would also work. */
+        /* NOTE: public IntList () { }  would also work. */
         this(0, null);
     }
 
@@ -82,15 +82,15 @@ public class IntList {
 
     public static IntList dcatenate(IntList A, IntList B) {
         //TODO:  fill in method
-        if(A==null){
-            A=B;
+        if (A == null) {
+            A = B;
             return A;
         }
-        IntList C=A;
-        while(C.rest!=null){
-            C=C.rest;
+        IntList C = A;
+        while (C.rest != null) {
+            C = C.rest;
         }
-        C.rest=B;
+        C.rest = B;
         return A;
     }
 
@@ -98,54 +98,35 @@ public class IntList {
      * Returns a list consisting of the elements of A followed by the
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
+//    //iterative
+//    public static IntList catenate(IntList A, IntList B) {
+//        //TODO:  fill in method
+//        if (A==null){
+//            return B;
+//        }
+//        IntList res=new IntList(A.first,null);
+//        IntList ptr=res;
+//        A=A.rest;
+//        while(A!=null){
+//            ptr.rest=new IntList(A.first,null);
+//            ptr=ptr.rest;
+//            A=A.rest;
+//        }
+//        while(B!=null){
+//            ptr.rest=new IntList(B.first,null);
+//            ptr=ptr.rest;
+//            B=B.rest;
+//        }
+//        return res;
+//    }
+    //recursive
     public static IntList catenate(IntList A, IntList B) {
         //TODO:  fill in method
-        if (A==null){
+        if (A == null){
             return B;
         }
-        IntList res=new IntList(A.first,null);
-        IntList ptr=res;
-        A=A.rest;
-        while(A!=null){
-            ptr.rest=new IntList(A.first,null);
-            ptr=ptr.rest;
-            A=A.rest;
-        }
-        while(B!=null){
-            ptr.rest=new IntList(B.first,null);
-            ptr=ptr.rest;
-            B=B.rest;
-        }
-        return res;
+        return new IntList(A.first,IntList.catenate(A.rest,B));
     }
-
-    /**
-     * main function written by jiuwu
-     */
-    public static void main(String[] args){
-        //Square
-//        IntList origl=IntList.of(1,2,3);
-//        dSquareList(origl);
-//        IntList newl=squareListIterative(origl);
-//        IntList newl=squareListRecursive(origl);
-        //Catenate
-        IntList a=IntList.of(1);
-        IntList b=IntList.of(2,3,4,4);
-//        dcatenate(a,b);
-        IntList c=catenate(a,b);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     /**
