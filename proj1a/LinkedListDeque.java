@@ -18,16 +18,27 @@ public class LinkedListDeque<T> {
     private int size;
 
     public LinkedListDeque() {
-        sentF = new StuffNode(null, null, sentB);
+        sentF = new StuffNode(null, null, null);
         sentB = new StuffNode(null, sentF, null);
+        sentF.next=sentB;
         size = 0;
     }
 
     public LinkedListDeque(T item) {
         sentF = new StuffNode(null, null, null);
-        sentF.next = new StuffNode(item, sentF, sentB);
+        sentF.next = new StuffNode(item, sentF, null);
         sentB = new StuffNode(null, sentF.next, null);
+        sentF.next.next=sentB;
         size = 1;
+    }
+
+    public LinkedListDeque(LinkedListDeque other){
+        sentF=new StuffNode(null,null,sentB);
+        sentB = new StuffNode(null, sentF, null);
+        size= 0;
+        for(int i=0;i< other.size();i++){
+            addLast((T) other.get(i));
+        }
     }
 
     public void addFirst(T item) {
@@ -54,11 +65,42 @@ public class LinkedListDeque<T> {
         StuffNode p = sentF.next;
         while (p.next != null) {
             System.out.print(p.item + " ");
-            p=p.next;
+            p = p.next;
         }
         System.out.println();
     }
 
+    public T removeFirst() {
+        if (size == 0) {
+            return null;
+        }
+        T first = sentF.next.item;
+        sentF.next = sentF.next.next;
+        sentF.next.prev = sentF;
+        return first;
+    }
+
+    public T removeLast() {
+        if (size == 0) {
+            return null;
+        }
+        T last = sentB.prev.item;
+        sentB.prev = sentB.prev.prev;
+        sentB.prev.next = sentB;
+        return last;
+    }
+
+    public T get(int index) {
+        if (size == 0) {
+            return null;
+        }
+        StuffNode p = sentF.next;
+        while (index != 0) {
+            p = p.next;
+            index -= 1;
+        }
+        return p.item;
+    }
 
     public static void main(String[] args) {
         LinkedListDeque<Integer> L = new LinkedListDeque<>(15);
