@@ -20,7 +20,7 @@ public class LinkedListDeque<T> {
     public LinkedListDeque() {
         sentF = new StuffNode(null, null, null);
         sentB = new StuffNode(null, sentF, null);
-        sentF.next=sentB;
+        sentF.next = sentB;
         size = 0;
     }
 
@@ -28,15 +28,15 @@ public class LinkedListDeque<T> {
         sentF = new StuffNode(null, null, null);
         sentF.next = new StuffNode(item, sentF, null);
         sentB = new StuffNode(null, sentF.next, null);
-        sentF.next.next=sentB;
+        sentF.next.next = sentB;
         size = 1;
     }
 
-    public LinkedListDeque(LinkedListDeque other){
-        sentF=new StuffNode(null,null,sentB);
+    public LinkedListDeque(LinkedListDeque other) {
+        sentF = new StuffNode(null, null, sentB);
         sentB = new StuffNode(null, sentF, null);
-        size= 0;
-        for(int i=0;i< other.size();i++){
+        size = 0;
+        for (int i = 0; i < other.size(); i++) {
             addLast((T) other.get(i));
         }
     }
@@ -77,6 +77,7 @@ public class LinkedListDeque<T> {
         T first = sentF.next.item;
         sentF.next = sentF.next.next;
         sentF.next.prev = sentF;
+        size -= 1;
         return first;
     }
 
@@ -87,6 +88,7 @@ public class LinkedListDeque<T> {
         T last = sentB.prev.item;
         sentB.prev = sentB.prev.prev;
         sentB.prev.next = sentB;
+        size -= 1;
         return last;
     }
 
@@ -102,6 +104,7 @@ public class LinkedListDeque<T> {
         return p.item;
     }
 
+    /** just write for testing */
     public static void main(String[] args) {
         LinkedListDeque<Integer> L = new LinkedListDeque<>(15);
         L.addFirst(10);
