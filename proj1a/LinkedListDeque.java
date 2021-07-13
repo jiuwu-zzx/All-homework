@@ -1,9 +1,9 @@
 public class LinkedListDeque<T> {
 
     private class StuffNode {
-        public T item;
-        public StuffNode prev;
-        public StuffNode next;
+        private T item;
+        private StuffNode prev;
+        private StuffNode next;
 
         public StuffNode(T item, StuffNode prev, StuffNode next) {
             this.item = item;
@@ -104,20 +104,23 @@ public class LinkedListDeque<T> {
         return p.item;
     }
 
-    public T getRecursive(int index){
+    public T getRecursive(int index) {
         if (size == 0) {
             return null;
         }
-        return getRecursiveHelper(sentF.next,index);
-    }
-    private T getRecursiveHelper(StuffNode senti,int index){
-        if (index==0){
-            return senti.item;
-        }
-        return getRecursiveHelper(senti.next,index-1);
+        return getRecursiveHelper(sentF.next, index);
     }
 
-    /** just write for testing */
+    private T getRecursiveHelper(StuffNode senti, int index) {
+        if (index == 0) {
+            return senti.item;
+        }
+        return getRecursiveHelper(senti.next, index - 1);
+    }
+
+    /**
+     * just write for testing
+     */
     public static void main(String[] args) {
         LinkedListDeque<Integer> L = new LinkedListDeque<>(15);
         L.addFirst(10);
