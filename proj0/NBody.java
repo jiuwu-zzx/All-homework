@@ -13,13 +13,17 @@ public class NBody{
 		double radius=in.readDouble();
 		Planet[] array=new Planet[planetsNumber];
 		for(int i=0;i<planetsNumber;i++){
-			Planet p=new Planet();
-			p.xxPos=in.readDouble();
-			p.yyPos=in.readDouble();
-			p.xxVel=in.readDouble();
-			p.yyVel=in.readDouble();
-			p.mass=in.readDouble();
-			p.imgFileName=in.readString();
+			double xP,yP,xV,yV,m;
+			String img;
+			
+			xP=in.readDouble();
+			yP=in.readDouble();
+			xV=in.readDouble();
+			yV=in.readDouble();
+			m=in.readDouble();
+			img=in.readString();
+
+			Planet p=new Planet(xP,yP,xV,yV,m,img);
 			array[i]=p;
 		}
 		return array;
