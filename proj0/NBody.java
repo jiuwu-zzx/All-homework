@@ -42,7 +42,8 @@ public class NBody{
 		double[] yForces = new double[planets.length];
 
 		StdDraw.enableDoubleBuffering();
-	
+		StdAudio.play("./audio/2001.mid");
+
 		while(now_t<T){
 			for(int i=0;i<planets.length;i++){
 				xForces[i]=planets[i].calcNetForceExertedByX(planets);
