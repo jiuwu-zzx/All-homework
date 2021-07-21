@@ -105,8 +105,35 @@ public class ArrayDeque<T> {
     public T get(int index) {
         if (nextFirst + index + 1 < items.length) {
             return items[nextFirst + index + 1];
-        } else {
+        } else if ((nextLast - (size - index)) >= 0) {
             return items[nextLast - (size - index)];
+        } else {
+            return items[index];
         }
     }
+//
+//    /* just for testing */
+//    public static void main(String[] args) {
+//        ArrayDeque<Integer> L = new ArrayDeque<>();
+//        L.addFirst(0);
+//        L.addFirst(1);
+//        L.addLast(2);
+//        L.addLast(3);
+//        L.removeLast();
+//        L.get(2);
+//        L.addFirst(6);
+//        L.addLast(7);
+//        L.removeLast();
+//        L.removeLast();
+//        L.addFirst(10);
+//        L.removeLast();
+//        L.addFirst(12);
+//        L.addFirst(13);
+//        L.removeFirst();
+//        L.addFirst(15);
+//        L.addLast(16);
+//        L.addFirst(17);
+//        L.addFirst(18);
+//        System.out.println(L.get(4));
+//    }
 }
