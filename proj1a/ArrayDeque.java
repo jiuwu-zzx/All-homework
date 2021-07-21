@@ -86,8 +86,8 @@ public class ArrayDeque<T> {
         if (size == 0) {
             return null;
         }
-        if (size <= Math.ceil(items.length/2.0)){
-            resize((int) Math.ceil(items.length/2.0));
+        if (size <= Math.ceil(items.length / 2.0)) {
+            resize((int) Math.ceil(items.length / 2.0));
         }
         if (nextFirst == items.length - 1) {
             nextFirst = 0;
