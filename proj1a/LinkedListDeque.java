@@ -118,16 +118,4 @@ public class LinkedListDeque<T> {
         return getRecursiveHelper(senti.next, index - 1);
     }
 
-    /**
-     * just write for testing
-     */
-    public static void main(String[] args) {
-        LinkedListDeque<Integer> L = new LinkedListDeque<>(15);
-        L.addFirst(10);
-        L.addFirst(5);
-        L.addLast(20);
-        System.out.println("the size of the list:" + L.size());
-        System.out.println(L.get(2).equals(L.getRecursive(2)));
-        L.printDeque();
-    }
 }
