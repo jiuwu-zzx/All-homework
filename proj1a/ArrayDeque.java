@@ -83,6 +83,12 @@ public class ArrayDeque<T> {
     }
 
     public T removeFirst() {
+        if (size == 0) {
+            return null;
+        }
+        if (size <= Math.ceil(items.length/2.0)){
+            resize((int) Math.ceil(items.length/2.0));
+        }
         if (nextFirst == items.length - 1) {
             nextFirst = 0;
         } else {
@@ -93,6 +99,9 @@ public class ArrayDeque<T> {
     }
 
     public T removeLast() {
+        if (size == 0) {
+            return null;
+        }
         if (nextLast == 0) {
             nextLast = items.length - 1;
         } else {
