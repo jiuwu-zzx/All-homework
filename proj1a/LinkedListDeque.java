@@ -24,22 +24,22 @@ public class LinkedListDeque<T> {
         size = 0;
     }
 
-    public LinkedListDeque(T item) {
-        sentF = new StuffNode(null, null, null);
-        sentF.next = new StuffNode(item, sentF, null);
-        sentB = new StuffNode(null, sentF.next, null);
-        sentF.next.next = sentB;
-        size = 1;
-    }
-
-    public LinkedListDeque(LinkedListDeque other) {
-        sentF = new StuffNode(null, null, sentB);
-        sentB = new StuffNode(null, sentF, null);
-        size = 0;
-        for (int i = 0; i < other.size(); i++) {
-            addLast((T) other.get(i));
-        }
-    }
+//    public LinkedListDeque(T item) {
+//        sentF = new StuffNode(null, null, null);
+//        sentF.next = new StuffNode(item, sentF, null);
+//        sentB = new StuffNode(null, sentF.next, null);
+//        sentF.next.next = sentB;
+//        size = 1;
+//    }
+//
+//    public LinkedListDeque(LinkedListDeque other) {
+//        sentF = new StuffNode(null, null, sentB);
+//        sentB = new StuffNode(null, sentF, null);
+//        size = 0;
+//        for (int i = 0; i < other.size(); i++) {
+//            addLast((T) other.get(i));
+//        }
+//    }
 
     public void addFirst(T item) {
         sentF.next = new StuffNode(item, sentF, sentF.next);
