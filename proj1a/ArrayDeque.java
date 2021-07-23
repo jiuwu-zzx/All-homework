@@ -16,8 +16,8 @@ public class ArrayDeque<T> {
         if (nextFirst == size - 1) {
             System.arraycopy(items, 0, a, 0, size);
         } else {
-            System.arraycopy(items, nextFirst + 1, a, 0, size - (nextFirst + 1));
-            System.arraycopy(items, 0, a, size - (nextFirst + 1), nextLast);
+            System.arraycopy(items, nextFirst + 1, a, 0, items.length - (nextFirst + 1));
+            System.arraycopy(items, 0, a, items.length - (nextFirst + 1), nextLast);
         }
         nextFirst = capacity - 1;
         nextLast = size;
@@ -120,7 +120,7 @@ public class ArrayDeque<T> {
             return items[index];
         }
     }
-//
+
 //    /* just for testing */
 //    public static void main(String[] args) {
 //        ArrayDeque<Integer> L = new ArrayDeque<>();
@@ -128,20 +128,26 @@ public class ArrayDeque<T> {
 //        L.addFirst(1);
 //        L.addLast(2);
 //        L.addLast(3);
+//        //5ge
+//        L.addLast(3);
+//        L.addLast(3);
+//        L.addLast(3);
+//        L.addLast(3);
+//        L.addLast(3);
 //        L.removeLast();
 //        L.get(2);
-//        L.addFirst(6);
-//        L.addLast(7);
+////        L.addFirst(6);
+////        L.addLast(7);
 //        L.removeLast();
 //        L.removeLast();
 //        L.addFirst(10);
 //        L.removeLast();
-//        L.addFirst(12);
-//        L.addFirst(13);
+////        L.addFirst(12);
+////        L.addFirst(13);
 //        L.removeFirst();
-//        L.addFirst(15);
-//        L.addLast(16);
-//        L.addFirst(17);
+////        L.addFirst(15);
+////        L.addLast(16);
+////        L.addFirst(17);
 //        L.addFirst(18);
 //        System.out.println(L.get(4));
 //    }
