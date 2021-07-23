@@ -26,7 +26,7 @@ public class ArrayDeque<T> {
         }
         nextFirst = capacity - 1;
         nextLast = size;
-        if (nextLast == items.length - 1) {
+        if (nextLast == items.length) {
             nextLast = 0;
         }
         items = a;
