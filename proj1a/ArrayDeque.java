@@ -18,12 +18,17 @@ public class ArrayDeque<T> {
         T[] a = (T[]) new Object[capacity];
         if (nextFirst == items.length - 1) {
             System.arraycopy(items, 0, a, 0, size);
+        } else if (nextFirst + size < items.length) {
+            System.arraycopy(items, nextFirst + 1, a, 0, size);
         } else {
             System.arraycopy(items, nextFirst + 1, a, 0, items.length - (nextFirst + 1));
             System.arraycopy(items, 0, a, items.length - (nextFirst + 1), nextLast);
         }
         nextFirst = capacity - 1;
         nextLast = size;
+        if (nextLast == items.length - 1) {
+            nextLast = 0;
+        }
         items = a;
     }
 
@@ -104,6 +109,9 @@ public class ArrayDeque<T> {
     public T removeLast() {
         if (size == 0) {
             return null;
+        }
+        if (size <= Math.ceil(items.length / 2.0)) {
+            resize((int) Math.ceil(items.length / 2.0));
         }
         if (nextLast == 0) {
             nextLast = items.length - 1;
