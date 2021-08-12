@@ -18,12 +18,4 @@ public class TestOffByOne {
         assertFalse(offByOne.equalChars('a', 'a'));
         assertTrue(offByOne.equalChars('&', '%'));
     }
-
-    @Test
-    public void TestPalindrome() {
-        assertTrue(offByOne.isPalindrome(""));
-        assertTrue(offByOne.isPalindrome("a"));
-        assertTrue(offByOne.isPalindrome("cab"));
-        assertFalse(offByOne.isPalindrome("cat"));
-    }
 }

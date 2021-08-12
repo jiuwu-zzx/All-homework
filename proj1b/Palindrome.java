@@ -28,4 +28,22 @@ public class Palindrome {
         }
         return (d.removeFirst() == d.removeLast()) && isPalindrome(d);
     }
+
+    /**
+     * OffByOne
+     */
+    public boolean isPalindrome(String word, CharacterComparator cc) {
+        if (word.length() == 0 || word.length() == 1) {
+            return true;
+        }
+        Deque<Character> d = wordToDeque(word);
+        return isPalindrome(d, cc);
+    }
+
+    private boolean isPalindrome(Deque<Character> d, CharacterComparator cc) {
+        if (d.size() == 0 || d.size() == 1) {
+            return true;
+        }
+        return cc.equalChars(d.removeFirst(), d.removeLast()) && isPalindrome(d, cc);
+    }
 }
