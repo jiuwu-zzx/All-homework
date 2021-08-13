@@ -28,8 +28,8 @@ public class TestPalindrome {
     @Test
     public void testNewIsPalindrome() {
         assertTrue(palindrome.isPalindrome("", cc));
-        assertTrue(palindrome.isPalindrome("a", cc));
-        assertTrue(palindrome.isPalindrome("cab", cc));
+        assertTrue(palindrome.isPalindrome("A", cc));
+        assertTrue(palindrome.isPalindrome("CB", cc));
         assertFalse(palindrome.isPalindrome("cat", cc));
     }
 }
